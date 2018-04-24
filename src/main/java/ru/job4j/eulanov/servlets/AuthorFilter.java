@@ -21,7 +21,7 @@ public class AuthorFilter implements Filter {
         } else {
             HttpSession session = request.getSession();
             synchronized (session) {
-                if (session.getAttribute("login") == null) {
+                if (session.getAttribute("user") == null) {
                     ((HttpServletResponse) resp).sendRedirect(String.format("%s/sign", request.getContextPath()));
                 } else {
                     chain.doFilter(req, resp);

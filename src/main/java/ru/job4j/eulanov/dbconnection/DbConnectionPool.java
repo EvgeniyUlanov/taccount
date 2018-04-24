@@ -2,7 +2,12 @@ package ru.job4j.eulanov.dbconnection;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class DbConnectionPool {
 
@@ -17,7 +22,7 @@ public class DbConnectionPool {
             ds.setPassword("784512963");
             ds.setMinIdle(5);
             ds.setMaxIdle(10);
-            ds.setMaxOpenPreparedStatements(100);
+            ds.setMaxOpenPreparedStatements(1000);
             dataSource = ds;
         }
         return dataSource;

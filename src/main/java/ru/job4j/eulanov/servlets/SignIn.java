@@ -25,7 +25,7 @@ public class SignIn extends HttpServlet {
         if (user != null && user.getPassword().equals(password)) {
             HttpSession session = req.getSession();
             synchronized (session) {
-                session.setAttribute("login", login);
+                session.setAttribute("user", user.getName());
                 session.setAttribute("role", user.getRole());
                 resp.sendRedirect(String.format("%s/", req.getContextPath()));
             }

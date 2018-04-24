@@ -7,7 +7,9 @@
 <body>
 
 <form action="${pageContext.servletContext.contextPath}/add" method='post'>
-    <label>User name: <input name="name"></label><br/>
+    <label>User name: <input name="name"></label>
+    <label>User password: <input name="password"></label>
+    <br/>
     <input type="submit" value="add new user">
 </form>
 
@@ -18,14 +20,20 @@
 <table style="border: 1px solid black;" cellpadding="1" cellspacing="1" border="1">
     <tr>
         <th>name</th>
-        <th>work time</th>
+        <th>password</th>
+        <th>time on work</th>
         <th>status</th>
+        <th>start time</th>
+        <th>finish time</th>
     </tr>
     <c:forEach var="user" items="${users}">
         <tr>
             <td><c:out value="${user.name}"/></td>
-            <td><c:out value="${user.workTime}"/></td>
+            <td><c:out value="${user.password}"/></td>
+            <td><c:out value="${user.workTimeString}"/></td>
             <td><c:out value="${user.status}"/></td>
+            <td><c:out value="${user.startDate}"/></td>
+            <td><c:out value="${user.finishDate}"/></td>
         </tr>
     </c:forEach>
 </table>
